@@ -1,4 +1,15 @@
-﻿int InputNum(string message)
+﻿/*
+Задача 58: Задайте две матрицы. Напишите программу, которая будет находить
+произведение двух матриц.
+Например, даны 2 матрицы:
+2 4 | 3 4
+3 2 | 3 3
+Результирующая матрица будет:
+18 20
+15 18
+*/
+
+int InputNum(string message)
 {
     Console.Write(message);
     return int.Parse(Console.ReadLine()!);
@@ -44,15 +55,27 @@ int[,] MultiplyMatrix(int[,] matrix1, int[,] matrix2)
     return composition;
 }
 int rows1 = InputNum("Введите количество строк первой матрицы: ");
-int cols1 = InputNum("Введите количество столбцов первой матрицы (строк второй матрицы): ");
+int cols1 = InputNum("Введите количество столбцов первой матрицы: ");
+int rows2 = InputNum("Введите количество строк второй матрицы): ");
 int cols2 = InputNum("Введите количество столбцов второй матрицы: ");
 int[,] matr1 = Create2DArray(rows1, cols1);
-int[,] matr2 = Create2DArray(cols1, cols2);
+int[,] matr2 = Create2DArray(rows2, cols2);
 Fill2DArray(matr1);
 Fill2DArray(matr2);
 Print2DArray(matr1);
 Console.WriteLine();
 Print2DArray(matr2);
 Console.WriteLine();
-int[,] resultArray = MultiplyMatrix(matr1, matr2);
-Print2DArray(resultArray);
+
+// int[,] resultArray = MultiplyMatrix(matr1, matr2);
+// Print2DArray(resultArray);
+if (cols1 != rows2)
+    Console.WriteLine(
+        "Найти произведение двух матриц невозможно, так как количество столбцов первой матрицы не равны количеству строк второй"
+    );
+else
+{
+    Console.WriteLine("Произведение двух матриц равно: ");
+    int[,] resultArray = MultiplyMatrix(matr1, matr2);
+    Print2DArray(resultArray);
+}
