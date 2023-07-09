@@ -66,9 +66,6 @@ Print2DArray(matr1);
 Console.WriteLine();
 Print2DArray(matr2);
 Console.WriteLine();
-
-// int[,] resultArray = MultiplyMatrix(matr1, matr2);
-// Print2DArray(resultArray);
 if (cols1 != rows2)
     Console.WriteLine(
         "Найти произведение двух матриц невозможно, так как количество столбцов первой матрицы не равны количеству строк второй"
